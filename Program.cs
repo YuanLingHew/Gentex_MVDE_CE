@@ -65,23 +65,6 @@ public class Program {
     /// </summary>
     public static void Main() {
         List<Shape> list = ImportShapes();
-        /*
-        double[,] test = null;
-
-        foreach (Shape s in list) {
-            if (string.Equals(s.GetName(), "Polygon")) {
-                test = ((Polygon)s).GetPoints();
-                break;
-            }
-        }
-
-        for (int i = 0; i < test.GetLength(0); i++) {
-            for (int j = 0; j < test.GetLength(1); j++) {
-                Console.WriteLine(test[i, j]);
-            }
-        }
-        */
-
         WriteData(list);
     }
 }
