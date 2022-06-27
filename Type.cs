@@ -72,7 +72,9 @@ public class Ellipse : Shape {
     }
 
     public override double CalculatePerimeter() {
-        return System.Math.PI * (this.GetR1() * this.GetR2());
+        const double x = 2 * System.Math.PI;
+        double y = (System.Math.Pow(this.GetR1(), 2) + System.Math.Pow(this.GetR1(), 2));
+        return (x * System.Math.Sqrt(y / 2));
     }
 }
 
@@ -106,7 +108,7 @@ public class EqTriangle : Shape {
     }
 
     public override double CalculateArea() {
-        return System.Math.Sqrt(3) / 4 * this.GetSideLength();
+        return (System.Math.Sqrt(3) / 4) * (System.Math.Pow(this.GetSideLength(), 2));
     }
 
     public override double CalculatePerimeter() {
