@@ -72,9 +72,8 @@ public class Ellipse : Shape {
     }
 
     public override double CalculatePerimeter() {
-        const double x = 2 * System.Math.PI;
-        double y = (System.Math.Pow(this.GetR1(), 2) + System.Math.Pow(this.GetR1(), 2));
-        return (x * System.Math.Sqrt(y / 2));
+        double x = System.Math.Pow(this.GetR1(), 2) + System.Math.Pow(this.GetR2(), 2);
+        return 2 * System.Math.PI * System.Math.Sqrt(x / 2);
     }
 }
 
