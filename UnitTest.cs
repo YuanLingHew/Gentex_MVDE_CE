@@ -32,6 +32,13 @@ public class UnitTest {
             new object[] { new double[5, 2] { {186.527, 6.24889}, {440.576, 135.026}, {447.194, 358.619}, {391.869, 464.493}, {186.527, 6.24889} }, 51522.032718385, 1130.1205999755448 },
     };
 
+    public static IEnumerable<object[]> GetSquare =>
+    new List<object[]> {
+            new object[] { 346.746, 51.165, 413.75, 1.3845, 171189.0625, 1655 },
+            new object[] { 123.4567, 234.234, 32.34565, 4.2212, 1046.2410739225, 129.3826 },
+            new object[] { 129.348, 276.438, 432.423, 2.40894, 186989.650929, 1729.692 },
+    };
+
     [Theory]
     [MemberData(nameof(GetCircle))]
     public void TestCircleArea(double centerX, double centerY, double radius, double expectedArea, double expectedPeri) {
@@ -56,7 +63,7 @@ public class UnitTest {
         Assert.Equal(System.Math.Round(expectedArea, 3), System.Math.Round(e.CalculateArea(), 3));
     }
 
-    [Theory(Skip = "approx")]
+    [Theory]
     [MemberData(nameof(GetEllipse))]
     public void TestEllPeri(double centerX, double centerY, double r1, double r2, double orientation, double expectedArea, double expectedPeri) {
 
@@ -94,6 +101,22 @@ public class UnitTest {
 
         Polygon p = new Polygon(1, "Polygon", points);
         Assert.Equal(System.Math.Round(expectedPeri, 3), System.Math.Round(p.CalculatePerimeter(), 3));
+    }
+
+    [Theory]
+    [MemberData(nameof(GetSquare))]
+    public void TestSquareArea(double centerX, double centerY, double sl, double orientation, double expectedArea, double expectedPeri) {
+
+        Square s = new Square(1, "Square", centerX, centerY, sl, orientation);
+        Assert.Equal(System.Math.Round(expectedArea, 3), System.Math.Round(s.CalculateArea(), 3));
+    }
+
+    [Theory]
+    [MemberData(nameof(GetSquare))]
+    public void TestSquarePeri(double centerX, double centerY, double sl, double orientation, double expectedArea, double expectedPeri) {
+
+        Square s = new Square(1, "Square", centerX, centerY, sl, orientation);
+        Assert.Equal(System.Math.Round(expectedPeri, 3), System.Math.Round(s.CalculatePerimeter(), 3));
     }
 }
 
