@@ -1,5 +1,8 @@
 ﻿using System;
 namespace Shape;
+/// <summary>
+/// Main class of the program
+/// </summary>
 public class Program {
 
     /// <summary>
