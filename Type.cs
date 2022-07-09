@@ -142,11 +142,19 @@ public class Ellipse : Shape {
 
     /// <summary>
     /// Method to calculate perimeter of ellipse
+    /// Using Ramanujan's approximation
+    /// p = pi(a+b)(1+(3h/(10+sqrt(4-3h))), where
+    /// a = semi-major axis
+    /// b = semi-minor axis
+    /// h = (a-b)^2/(a+b)^2
     /// </summary>
     /// <returns>Perimeter of ellipse</returns>
     public override double CalculatePerimeter() {
-        double x = System.Math.Pow(this.GetR1(), 2) + System.Math.Pow(this.GetR2(), 2);
-        return 2 * System.Math.PI * System.Math.Sqrt(x / 2);
+        double a = this.GetR1();
+        double b = this.GetR2();
+        double h = Math.Pow(this.GetR1() - this.GetR2(), 2) / Math.Pow(this.GetR1() + this.GetR2(), 2);
+        double p = Math.PI * (a + b) * (1 + (3 * h / (10 + Math.Sqrt(4 - 3 * h))));
+        return p;
     }
 }
 
