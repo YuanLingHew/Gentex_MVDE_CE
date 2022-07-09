@@ -2,6 +2,9 @@ using Xunit;
 using System;
 namespace Shape;
 
+/// <summary>
+/// Unit tests that tests the correctness of program in terms of 
+/// </summary>
 public class UnitTest {
 
     public static IEnumerable<object[]> GetCircle =>

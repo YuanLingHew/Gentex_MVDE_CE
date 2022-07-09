@@ -11,8 +11,10 @@ public class Program {
     /// <returns>List of Shape objects</returns>
     public static List<Shape> ImportShapes() {
         List<Shape> ret = new();
-        using (var reader = new StreamReader("test.csv")) {
+        using (var reader = new StreamReader("Machine Vision Development Engineer Coding Exercise _ ShapeList2.csv")) {
+            // reads every line in csv file
             while (!reader.EndOfStream) {
+                // reads line and uses ',' as delimiter
                 var line = reader.ReadLine();
                 var values = line.Split(',');
 
